@@ -1,13 +1,10 @@
-import Menus from "./components/Menus"
-import './App.scss'
-
+import Menus from "./components/Menus";
+import "./App.scss";
 
 export default function App() {
   return (
     <div>
- 
       <Menus />
-      
     </div>
-  )
+  );
 }

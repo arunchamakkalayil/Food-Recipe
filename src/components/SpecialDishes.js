@@ -7,7 +7,7 @@ function SpecialDishes({ menu }) {
       return (
         <li>
           <div>
-            <img src={menuItem.strMealThumb} className="br" />
+            <img src={menuItem.strMealThumb} className="br" alt="" />
             <h5 className="medium">{menuItem.strMeal}</h5>
           </div>
         </li>

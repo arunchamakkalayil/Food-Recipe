@@ -87,15 +87,24 @@ body{
     background-color: #f5f4f4;
 }
 
-p{
+.p-white{
 line-height: 24px;
 font-size: 15px;
 color:white;
 
 
 } 
+.p-black{
+    line-height: 24px;
+    font-size: 15px;
+    
+    
+    
+    }
 .text-center{
     text-align: center;
+    max-width: 680px;
+        margin: auto;
 }
 
 ul{
@@ -126,6 +135,12 @@ section{
 }
 .gap-30{
     gap:30px;
+}
+.gap-35{
+    gap:35px;
+}
+.column-gap-21{
+    column-gap: 21px;
 }
 
 .br{
@@ -173,4 +188,86 @@ h5{
     margin-top: 18px;
 }
     }
+}
+.filtred-dishes{
+ul{
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 30px;
+
+        li{
+            background-color: #ffb902;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            font-weight:bold;
+            
+            
+
+            &.active{
+                background-color: black;
+            }
+            &:hover{
+                background-color: black;
+            }
+        }
+       
+        
+    }
+}
+.loader{
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(58, 55, 55);
+    h1{
+        color: white;
+    }
+    svg{
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+.special-dishes{
+    &-container {
+        max-width: 680px;
+        margin: auto;
+        p{
+            color: black;
+        }
+    }
+    
+    &-filter{
+        margin-top: 60px;
+        margin-bottom: 60px;
+        li{
+           
+            width: 22%;
+           max-height: 150px;
+        }
+h5{
+    margin-top: 6px;
+}
+    }
+}
+
+    
+.center{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    
+}
+.align{
+    align-items: inherit;
+    justify-content: center;
+
 }
