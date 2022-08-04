@@ -1,10 +1,28 @@
 import React, { useState } from 'react'
+import NoDishes from './NoDishes'
 
-function FilteredDishes({menuCategory,menu}) {
+function FilteredDishes({menuCategory,menu,singleDish}) {
+   
 
 let [filteredDishes,setFilteredDishes] = useState([])
+let [activeDishes,setActiveDishes] = useState()
 
+
+
+// get single dish active
+let singleDishItems = singleDish.map((item)=>{
+    return (
+        <li>
+    <img src={item.strMealThumb} alt='' className='br' />
+    <h5 className="medium">{item.strMeal}</h5>
+    </li>
+
+    )
+    })
+
+//show dishes on click
 const showFilterdDishes =(category)=>{
+    setActiveDishes(category)
 
  let filteredDishesAre =  menu.filter((item)=>{
     return(
@@ -29,7 +47,7 @@ const showFilterdDishes =(category)=>{
 
     let allMenuCategory = menuCategory.map((item)=>{
         return(
-            <li onClick={()=>{showFilterdDishes(item.strCategory)}}>
+            <li className={item.strCategory === activeDishes ? 'active' : ''} onClick={()=>{showFilterdDishes(item.strCategory)}}>
                 {item.strCategory}
             </li>
         )
@@ -52,7 +70,9 @@ const showFilterdDishes =(category)=>{
             </div>
             <div className='special-dishes-filter center'>
                 <ul className='flex flex-wrap gap-35 align'>
-                    {filteredDishes}
+                    {filteredDishes.length !=0 ? filteredDishes:<NoDishes />}
+                    {singleDishItems}
+                    
 
                 </ul>
 

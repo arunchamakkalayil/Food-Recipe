@@ -224,7 +224,7 @@ ul{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(58, 55, 55);
+    background-color: rgba(0, 0, 0, 0.664);
     h1{
         color: white;
     }
@@ -261,7 +261,7 @@ h5{
 
     
 .center{
-    display: flex;
+    
     flex-wrap: wrap;
     text-align: center;
     
@@ -270,4 +270,13 @@ h5{
     align-items: inherit;
     justify-content: center;
 
+}
+
+.alert{
+ padding: 20px;
+    background-color: white;
+    color: #f44336;
+    width: 600px;
+    border: 1px solid #f44336;
+    border-radius: 10px;
 }
