@@ -1,11 +1,21 @@
 import React, { useState } from 'react'
 import NoDishes from './NoDishes'
+import Pagination from './Pagination'
 
-function FilteredDishes({menuCategory,menu,singleDish}) {
+function FilteredDishes({menuCategory,menu,singleDish,setSingleDish}) {
    
 
-let [filteredDishes,setFilteredDishes] = useState([])
-let [activeDishes,setActiveDishes] = useState()
+let [filteredDishes,setFilteredDishes] = useState([''])
+let [activeDishes,setActiveDishes] = useState('Beef')
+let [currentPage,setCurrentPage] = useState(1)
+let [itemsPerPage , setItemsPerPage] = useState(4)
+
+let indexOfLastDish = currentPage * itemsPerPage
+// 1 x 4 = 4
+let indexOfFirstDish = indexOfLastDish - itemsPerPage
+// 4 - 4 = 0
+
+let showTheseDishesNow = filteredDishes.slice(indexOfFirstDish,indexOfLastDish)
 
 
 
@@ -22,6 +32,9 @@ let singleDishItems = singleDish.map((item)=>{
 
 //show dishes on click
 const showFilterdDishes =(category)=>{
+    
+    setSingleDish([])
+    
     setActiveDishes(category)
 
  let filteredDishesAre =  menu.filter((item)=>{
@@ -69,14 +82,17 @@ const showFilterdDishes =(category)=>{
 
             </div>
             <div className='special-dishes-filter center'>
-                <ul className='flex flex-wrap gap-35 align'>
-                    {filteredDishes.length !=0 ? filteredDishes:<NoDishes />}
+                <ul className='flex flex-wrap gap-30 align'>
+                    {filteredDishes.length !==0 ? showTheseDishesNow:<NoDishes />}
+                    
                     {singleDishItems}
                     
 
                 </ul>
 
             </div>
+
+            <Pagination filteredDishes={filteredDishes} itemsPerPage={itemsPerPage} currentPage={currentPage} setCurrentPage={setCurrentPage} />
             
         </div>
     </div>

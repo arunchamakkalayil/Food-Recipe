@@ -49,13 +49,14 @@ setSingleDish(singleDishData.meals)
     fetchData();
     fetchCategoryData()
     getOnlyOneDish()
+    
   }, []);
 
   return (
     <div>
       <Hero />
       {!loading? <SpecialDishes menu={menu} /> : <Loading />}
-      {!loading? <FilteredDishes menuCategory={menuCategory} singleDish={singleDish} menu={menu}/> : null}
+      {!loading? <FilteredDishes menuCategory={menuCategory} singleDish={singleDish} setSingleDish={setSingleDish} menu={menu}/> : null}
       
       
     </div>
